@@ -54,7 +54,49 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/yygh/hospset',
+    component: Layout,
+    redirect: '/yygh/hostset/list',
+    name: '医院设置信息',
+    meta: { title: '医院设置信息', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: '医院设置列表',
+        component: () => import('@/views/yygh/hospset/list'),
+        meta: { title: '医院设置列表', icon: 'table' }
+      },
+      {
+        path: 'save',
+        name: '医院设置添加',
+        component: () => import('@/views/yygh/hospset/save'),
+        meta: { title: '医院设置添加', icon: 'tree' }
+      },
+      {
+        path: 'edit/:id',
+        name: '医院设置修改',
+        component: () => import('@/views/yygh/hospset/save'),
+        meta: { title: '医院设置修改', icon: 'tree' },
+        hidden:true
+      }
+    ]
+  },
+  {
+    path: '/yygh/cmn',
+    component: Layout,
+    redirect: '/yygh/hostset/list',
+    name: '字典数据展示',
+    meta: { title: '字典数据展示', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: '字典数据展示',
+        component: () => import('@/views/yygh/cmn/list'),
+        meta: { title: '字典数据展示', icon: 'table' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
