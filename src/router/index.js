@@ -98,6 +98,80 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/yygh/hosp',
+    component: Layout,
+    redirect: '/yygh/hosp/list',
+    name: '医院管理',
+    meta: { title: '医院管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: '医院列表',
+        component: () => import('@/views/yygh/hosp/list'),
+        meta: { title: '医院列表', icon: 'table' }
+      },
+      {
+        path: 'detail/:id',
+        name: '医院详情',
+        component: () => import('@/views/yygh/hosp/detail'),
+        meta: { title: '医院详情', icon: 'table' },
+        hidden:true
+      },
+      {
+        path: 'schedule/:hoscode',
+        name: '排班页面',
+        component: () => import('@/views/yygh/hosp/schedule'),
+        meta: { title: '排班页面', icon: 'table' },
+        hidden:true
+      }
+    ]
+  },
+  {
+    path: '/user',
+    component: Layout,
+    redirect: '/user/userInfo/list',
+    name: 'userInfo',
+    meta: { title: '用户管理', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'userInfo/list',
+        name: '用户列表',
+        component: () => import('@/views/yygh/userInfo/list'),
+        meta: { title: '用户列表', icon: 'table' }
+      },
+      {
+        path: 'userInfo/detail/:id',
+        name: '用户详情',
+        component: () => import('@/views/yygh/userInfo/detail'),
+        meta: { title: '用户详情', icon: 'table' },
+        hidden:true
+      },
+      {
+        path: 'userInfo/authlist',
+        name: '用户认证列表',
+        component: () => import('@/views/yygh/userInfo/authlist'),
+        meta: { title: '用户认证列表', icon: 'table' }
+      }
+    ]
+  },
+  {
+    path: '/statistics',
+    component: Layout,
+    redirect: '/statistics/order/index',
+    name: 'BasesInfo',
+    meta: { title: '统计管理', icon: 'table' },
+    alwaysShow: true,
+    children: [
+        {
+          path: 'order/index',
+          name: '预约统计',
+          component: () =>import('@/views/yygh/sta/index'),
+          meta: { title: '预约统计' }
+        }
+      ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
